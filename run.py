@@ -3,8 +3,11 @@ import random
 """
 Battleships welcome message
 """
-
-print("*** Welcome to Battleships! Let's play... ***")
+print("-" * 79)
+print("Welcome to BATTLESHIPS...")
+print("Select the size of your board by entering the number of rows and columns below.")
+print("Good luck!")
+print("-" * 79)
 
 """
 Ask user to select number of rows
