@@ -19,6 +19,9 @@ while True:
     except ValueError:
         print("Error. You must enter a valid number.")
 
+"""
+Ask user to select number of columns
+"""
 while True:
     try:
         columns = int(input("Enter the number of columns between 5 and 10: \n"))
@@ -59,7 +62,7 @@ computer_board.display_board()
 
 while True:
     try:
-        players_turn = int(input("Choose a column: \n"))
+        player_column = int(input("Choose a column: \n"))
         if 1 <= rows <= 10:
             break
         else:
@@ -69,7 +72,7 @@ while True:
 
 while True:
     try:
-        players_turn = int(input("Choose a row: \n"))
+        player_row = int(input("Choose a row: \n"))
         if 1 <= columns <= 10:
             break
         else:
