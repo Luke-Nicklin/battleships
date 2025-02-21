@@ -4,7 +4,7 @@ import random
 Battleships welcome message
 """
 
-print("Welcome to Battleships! Let's play...")
+print("*** Welcome to Battleships! Let's play... ***")
 
 """
 Ask user to select number of rows
