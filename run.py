@@ -56,3 +56,23 @@ player_board.display_board()
 
 print("Computer's board:")
 computer_board.display_board()
+
+while True:
+    try:
+        players_turn = int(input("Choose a column: \n"))
+        if 1 <= rows <= 10:
+            break
+        else:
+            print("You must enter a number between 1 and 10.")
+    except ValueError:
+        print("Error. You must enter a valid number.")
+
+while True:
+    try:
+        players_turn = int(input("Choose a row: \n"))
+        if 1 <= columns <= 10:
+            break
+        else:
+            print("You must enter a number between 1 and 10.")
+    except ValueError:
+        print("Error. You must enter a valid number.")
