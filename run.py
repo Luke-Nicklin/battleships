@@ -62,9 +62,22 @@ class Board:
             self.ships.append((row, col))
             return True
         return False
+    
+    def random_ship_location(self):
+        while True:
+            row = random.randint(0, self.rows - 1)
+            col = random.randint(0, self.columns - 1)
+            if self.ship_location(row, col):
+                break
 
 player_board = Board(rows, columns)
 computer_board = Board(rows, columns)
+
+num_ships = 3
+
+for _ in range(num_ships):
+    player_board.random_ship_location()
+    computer_board.random_ship_location()
 
 print("Your board:")
 player_board.display_board()
