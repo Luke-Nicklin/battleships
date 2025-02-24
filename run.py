@@ -44,16 +44,19 @@ class Board:
         self.board = [["." for _ in range(columns)] for _ in range(rows)]
         self.ships = []
 
-    def display_board(self):
-        print(" ", end="")
+    def display_board(self, hide_ships=False):
+        print("   ", end="")
         for i in range(self.columns):
-            print(i + 1, end=" ")
+            print("{:2}".format(i + 1), end=" ")
         print()
 
         for i in range(self.rows):
-            print(i + 1, end=" ")
+            print("{:2}".format(i + 1), end=" ")
             for j in range(self.columns):
-                print(self.board[i][j], end=" ")
+                if hide_ships and (i, j) in self.ships:
+                    print(" .", end=" ")
+                else:
+                    print(" " + self.board[i][j], end=" ")
             print()
 
     def ship_location(self, row, col):
@@ -83,8 +86,10 @@ print("Your board:")
 player_board.display_board()
 
 print("Computer's board:")
-computer_board.display_board()
+computer_board.display_board(hide_ships=True)
 
+# Code to allow the user to place their own ships. This is now done manually.
+"""
 while True:
     try:
         player_column = int(input("Enter a column of the ship: \n"))
@@ -104,3 +109,4 @@ while True:
             print("You must enter a number between 1 and 9.")
     except ValueError:
         print("Error. You must enter a valid number.")
+"""
