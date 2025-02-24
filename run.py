@@ -45,18 +45,18 @@ class Board:
         self.ships = []
 
     def display_board(self, hide_ships=False):
-        print("   ", end="")
+        print("    ", end="")
         for i in range(self.columns):
-            print("{:2}".format(i + 1), end=" ")
+            print("{:3}".format(i + 1), end=" ")
         print()
 
         for i in range(self.rows):
-            print("{:2}".format(i + 1), end=" ")
+            print("{:3}".format(i + 1), end=" ")
             for j in range(self.columns):
                 if hide_ships and (i, j) in self.ships:
-                    print(" .", end=" ")
+                    print("  .", end=" ")
                 else:
-                    print(" " + self.board[i][j], end=" ")
+                    print("  " + self.board[i][j], end=" ")
             print()
 
     def ship_location(self, row, col):
