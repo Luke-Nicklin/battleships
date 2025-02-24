@@ -73,10 +73,18 @@ class Board:
             if self.ship_location(row, col):
                 break
 
+    def hit_ships_count(board):
+        count = 0
+        for row in board:
+            for column in row:
+                if column == "X":
+                    count += 1
+        return count
+
 player_board = Board(rows, columns)
 computer_board = Board(rows, columns)
 
-num_ships = 3
+num_ships = 5
 
 for _ in range(num_ships):
     player_board.random_ship_location()
