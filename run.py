@@ -43,6 +43,8 @@ class Board:
         self.columns = columns
         self.board = [["." for _ in range(columns)] for _ in range(rows)]
         self.ships = []
+        self.hits = set()
+        self.misses = set()
 
     def display_board(self, hide_ships=False):
         print("    ", end="")
@@ -73,6 +75,18 @@ class Board:
             if self.ship_location(row, col):
                 break
 
+    def choose_coordinate(self, row, col):
+        if (row, col) in self.hits or (row, col) in self.misses:
+            return "Coordinate already selected"
+        elif (row, col) in self.ships:
+            self.hits.add((row, col))
+            self.board[row][col] = "X"
+            return "Hit!"
+        else:
+            self.misses.add((row, col))
+            self.board[row][col] = "O"
+            return "Miss!"
+
 player_board = Board(rows, columns)
 computer_board = Board(rows, columns)
 
@@ -87,6 +101,20 @@ player_board.display_board()
 
 print("Computer's board:")
 computer_board.display_board(hide_ships=True)
+
+while True:
+    try:
+        row = int(input(f"Select a row (1-{rows}): ")) - 1
+        col = int(input(f"Select a column (1-{columns}): ")) - 1
+        if 0 <= row < rows and 0 <= col < columns:
+            result = computer_board.choose_coordinate(row, col)
+            print(result)
+            computer_board.display_board(hide_ships=True)
+            break
+        else:
+            print(f"Invalid input. Row and column must be between 1 and {rows}/{columns}.")
+    except ValueError:
+        print("Please enter a valid number.")
 
 # Code to allow the user to place their own ships. This is now done manually.
 """
