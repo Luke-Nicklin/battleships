@@ -37,6 +37,11 @@ while True:
     except ValueError:
         print("Error. You must enter a valid number.")
 
+"""
+Creates the Battleships board.
+Places the ships on the board randomly.
+Allows the user to take a shot by selecting coordinates.
+"""
 class Board:
     def __init__(self, rows, columns):
         self.rows = rows
@@ -102,6 +107,9 @@ player_board.display_board()
 print("Computer's board:")
 computer_board.display_board(hide_ships=True)
 
+"""
+Allows the user to take a shot by selecting the coordinates.
+"""
 while True:
     try:
         row = int(input(f"Select a row (1-{rows}): ")) - 1
@@ -115,26 +123,3 @@ while True:
             print(f"Invalid input. Row and column must be between 1 and {rows}/{columns}.")
     except ValueError:
         print("Please enter a valid number.")
-
-# Code to allow the user to place their own ships. This is now done manually.
-"""
-while True:
-    try:
-        player_column = int(input("Enter a column of the ship: \n"))
-        if 1 <= rows <= 9:
-            break
-        else:
-            print("You must enter a number between 1 and 9.")
-    except ValueError:
-        print("Error. You must enter a valid number.")
-
-while True:
-    try:
-        player_row = int(input("Enter a row of the ship: \n"))
-        if 1 <= columns <= 9:
-            break
-        else:
-            print("You must enter a number between 1 and 9.")
-    except ValueError:
-        print("Error. You must enter a valid number.")
-"""
