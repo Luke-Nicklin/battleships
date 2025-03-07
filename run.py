@@ -139,6 +139,12 @@ while True:
                     print(result) 
                     break
             
+            computer_row = random.randint(0, rows - 1)
+            computer_col = random.randint(0, columns - 1)
+            computer_result = player_board.choose_coordinate(computer_row, computer_col)
+            print(f"Computer's turn: {computer_result}")
+            player_board.display_board()
+            
         else:
             print(f"Please enter a row and column between 1 and {rows}/{columns}.")
     except ValueError:
