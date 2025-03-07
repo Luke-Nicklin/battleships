@@ -72,7 +72,7 @@ class Board:
         for i in range(self.rows):
             print("{:3}".format(i + 1), end=" ")
             for j in range(self.columns):
-                if hide_ships and (i, j) in self.ships:
+                if hide_ships and (i, j) in self.ships and (i, j) not in self.hits and (i, j) not in self.misses:
                     print("  .", end=" ")
                 else:
                     print("  " + self.board[i][j], end=" ")
@@ -130,8 +130,16 @@ while True:
             result = computer_board.choose_coordinate(row, col)
             print(result)
             computer_board.display_board(hide_ships=True)
-            break
+
+            if "Hit!" in result:
+                if len(computer_board.hits) == num_ships:
+                    print(Fore.GREEN + "You sunk all the computer's ships.")
+                    print(" ")
+                    result = pyfiglet.figlet_format("Y o u  w i n !", font = "colossal" ) 
+                    print(result) 
+                    break
+            
         else:
-            print(f"Invalid input. Row and column must be between 1 and {rows}/{columns}.")
+            print(f"Please enter a row and column between 1 and {rows}/{columns}.")
     except ValueError:
         print("Please enter a valid number.")
