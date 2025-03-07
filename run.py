@@ -1,12 +1,24 @@
 import random
-
 from random import randint
+
+import colorama
+# import colorma module
+from colorama import init, Fore, Back, Style
+
+# Initialize Colorama
+init()
+
+# import pyfiglet module 
+import pyfiglet
 
 """
 Battleships welcome message
 """
 print("-" * 79)
-print("Welcome to BATTLESHIPS...")
+print("Welcome to...")
+print(" ")
+result = pyfiglet.figlet_format("Battleships", font = "colossal" ) 
+print(result)
 print("Select the size of your board by entering the number of rows and columns below.")
 print("Good luck!")
 print("-" * 79)
