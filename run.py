@@ -43,7 +43,7 @@ rows, columns = board_difficulty()
 
 """
 Creates the Battleships board.
-Places the ships on the board randomly.
+Places the ships on the board.
 Allows the user to take a shot by selecting coordinates.
 """
 
@@ -117,11 +117,12 @@ while True:
 
             if "Direct hit!" in result:
                 player_hits += 1
+                print(Fore.BLUE + f"Player hits: {player_hits}" + Style.RESET_ALL)
                 if player_hits == num_ships:
                     print(Fore.GREEN + "You sunk all the computer's ships.")
                     print(" ")
                     result = pyfiglet.figlet_format("Y o u  w i n !", font = "colossal" ) 
-                    print(result) 
+                    print(result)
                     break
             
             computer_row = random.randint(0, rows - 1)
@@ -132,6 +133,7 @@ while True:
 
             if "Direct hit!" in computer_result:
                 computer_hits += 1
+                print(Fore.BLUE + f"Computer hits: {computer_hits}" + Style.RESET_ALL)
                 if computer_hits == num_ships:
                     print(Fore.RED + "Computer sunk all your ships.")
                     print(" ")
