@@ -82,8 +82,9 @@ class Board:
         while True:
             row = random.randint(0, self.rows - 1)
             col = random.randint(0, self.columns - 1)
-            if self.ship_location(row, col):
-                break
+            if self.board[row][col] == ".":
+                if self.ship_location(row, col):
+                    break
 
     def choose_coordinate(self, row, col):
         if (row, col) in self.hits or (row, col) in self.misses:
