@@ -19,7 +19,7 @@ print("Welcome to...")
 print(" ")
 result = pyfiglet.figlet_format("Battleships", font = "colossal" ) 
 print(result)
-print("Select the size of your board by entering the number of rows and columns below.")
+print("Choose an easy board or a hard board below.")
 print("Good luck!")
 print("-" * 79)
 
@@ -47,86 +47,77 @@ Places the ships on the board randomly.
 Allows the user to take a shot by selecting coordinates.
 """
 
-class Board:
-    def __init__(self, rows, columns):
-        self.rows = rows
-        self.columns = columns
-        self.board = [["." for _ in range(columns)] for _ in range(rows)]
-        self.ships = []
-        self.hits = set()
-        self.misses = set()
+def create_game_board(rows, columns):
+    board = [['.' for _ in range(columns)] for _ in range(rows)]
+    return board
 
-    def display_board(self, hide_ships=False):
-        print("    ", end="")
-        for i in range(self.columns):
-            print("{:3}".format(i + 1), end=" ")
-        print()
+def display_board(board, hide_ships=False):
+    header_spacing = " " * (len(str(len(board))) + 1)
 
-        for i in range(self.rows):
-            print("{:3}".format(i + 1), end=" ")
-            for j in range(self.columns):
-                if hide_ships and (i, j) in self.ships and (i, j) not in self.hits and (i, j) not in self.misses:
-                    print("  .", end=" ")
-                else:
-                    print("  " + self.board[i][j], end=" ")
-            print()
+    print(header_spacing + " ".join(f"{i + 1:2}" for i in range(len(board[0]))))
 
-    def ship_location(self, row, col):
-        if 0 <= row < self.rows and 0 <= col < self.columns:
-            self.board[row][col] = "S"
-            self.ships.append((row, col))
-            return True
-        return False
+    for i, row in enumerate(board):
+        row_str = f"{i + 1:2} "
+        display_row = []
+        for cell in row:
+            if hide_ships and cell == 'S':
+                display_row.append('.')
+            else:
+                display_row.append(cell)
+        print(row_str + "  ".join(display_row))
+        
+def ship_location(board, num_ships):
+    ships = []
+    while len(ships) < num_ships:
+        row = randint(0, len(board) - 1)
+        col = randint(0, len(board[0]) - 1)
+        if (row, col) not in ships:
+            ships.append((row, col))
+            board[row][col] = 'S'
+    return ships
     
-    def random_ship_location(self):
-        while True:
-            row = random.randint(0, self.rows - 1)
-            col = random.randint(0, self.columns - 1)
-            if self.board[row][col] == ".":
-                if self.ship_location(row, col):
-                    break
-
-    def choose_coordinate(self, row, col):
-        if (row, col) in self.hits or (row, col) in self.misses:
-            return "Coordinate already selected"
-        elif (row, col) in self.ships:
-            self.hits.add((row, col))
-            self.board[row][col] = "X"
-            return "Hit!"
-        else:
-            self.misses.add((row, col))
-            self.board[row][col] = "O"
-            return "Miss!"
-
-player_board = Board(rows, columns)
-computer_board = Board(rows, columns)
+def choose_coordinate(board, row, col):
+    if board[row][col] == 'S':
+        board[row][col] = 'X'
+        return "Direct hit!"
+    elif board[row][col] == '.':
+        board[row][col] = 'O'
+        return "Miss!"
+    else:
+        return "You've already selected that coordinate."
+    
+player_board = create_game_board(rows, columns)
+computer_board = create_game_board(rows, columns)
 
 num_ships = 5
 
-for _ in range(num_ships):
-    player_board.random_ship_location()
-    computer_board.random_ship_location()
+player_ships = ship_location(player_board, num_ships)
+computer_ships = ship_location(computer_board, num_ships)
 
 print("Your board:")
-player_board.display_board()
+display_board(player_board)
 
 print("Computer's board:")
-computer_board.display_board(hide_ships=True)
+display_board(computer_board, hide_ships=True)
 
 """
 Allows the user to take a shot by selecting the coordinates.
 """
+player_hits = 0
+computer_hits = 0
+
 while True:
     try:
         row = int(input(f"Select a row (1-{rows}): ")) - 1
         col = int(input(f"Select a column (1-{columns}): ")) - 1
         if 0 <= row < rows and 0 <= col < columns:
-            result = computer_board.choose_coordinate(row, col)
+            result = choose_coordinate(computer_board, row, col)
             print(result)
-            computer_board.display_board(hide_ships=True)
+            display_board(computer_board, hide_ships=True)
 
-            if "Hit!" in result:
-                if len(computer_board.hits) == num_ships:
+            if "Direct hit!" in result:
+                player_hits += 1
+                if player_hits == num_ships:
                     print(Fore.GREEN + "You sunk all the computer's ships.")
                     print(" ")
                     result = pyfiglet.figlet_format("Y o u  w i n !", font = "colossal" ) 
@@ -135,11 +126,20 @@ while True:
             
             computer_row = random.randint(0, rows - 1)
             computer_col = random.randint(0, columns - 1)
-            computer_result = player_board.choose_coordinate(computer_row, computer_col)
+            computer_result = choose_coordinate(player_board, computer_row, computer_col)
             print(f"Computer's turn: {computer_result}")
-            player_board.display_board()
+            display_board(player_board)
+
+            if "Direct hit!" in computer_result:
+                computer_hits += 1
+                if computer_hits == num_ships:
+                    print(Fore.RED + "Computer sunk all your ships.")
+                    print(" ")
+                    result = pyfiglet.figlet_format("Y o u  l o s e", font="colossal")
+                    print(result)
+                    break
             
         else:
-            print(f"Please enter a row and column between 1 and {rows}/{columns}.")
+            print(f"Please enter a row and column between 1 and {columns}.")
     except ValueError:
         print("Please enter a valid number.")
