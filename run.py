@@ -24,36 +24,29 @@ print("Good luck!")
 print("-" * 79)
 
 """
-Ask user to select number of rows
+Asks the user to select easy or hard board
 """
-while True:
-    try:
-        rows = int(input("Enter the number of rows between 5 and 9: \n"))
-        if 5 <= rows <= 9:
-            break
-        else:
-            print("You must enter a number between 5 and 9.")
-    except ValueError:
-        print("Error. You must enter a valid number.")
+def board_difficulty():
+    while True:
+        try:
+            difficulty = input("Select difficulty: 'Easy' or 'Hard': ")
+            if difficulty == "Easy":
+                return 5, 5
+            elif difficulty == "Hard":
+                return 9, 9
+            else:
+                print("Invalid input. You must enter either 'Easy' or 'Hard'.")
+        except ValueError:
+            print("Invalid input. You must enter either 'Easy' or 'Hard'.")
 
-"""
-Ask user to select number of columns
-"""
-while True:
-    try:
-        columns = int(input("Enter the number of columns between 5 and 9: \n"))
-        if 5 <= columns <= 9:
-            break
-        else:
-            print("You must enter a number between 5 and 9.")
-    except ValueError:
-        print("Error. You must enter a valid number.")
+rows, columns = board_difficulty(board)
 
 """
 Creates the Battleships board.
 Places the ships on the board randomly.
 Allows the user to take a shot by selecting coordinates.
 """
+
 class Board:
     def __init__(self, rows, columns):
         self.rows = rows
