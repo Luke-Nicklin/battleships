@@ -39,7 +39,7 @@ def board_difficulty():
         except ValueError:
             print("Invalid input. You must enter either 'Easy' or 'Hard'.")
 
-rows, columns = board_difficulty(board)
+rows, columns = board_difficulty()
 
 """
 Creates the Battleships board.
