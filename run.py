@@ -31,7 +31,7 @@ Asks the user to select easy or hard board
 def board_difficulty():
     while True:
         try:
-            difficulty = input("Select difficulty: 'Easy' or 'Hard': ")
+            difficulty = input("Select difficulty: 'Easy' or 'Hard': \n")
             if difficulty == "Easy":
                 return 5, 5
             elif difficulty == "Hard":
@@ -116,8 +116,8 @@ computer_hits = 0
 
 while True:
     try:
-        row = int(input(f"Select a row (1-{rows}): ")) - 1
-        col = int(input(f"Select a column (1-{columns}): ")) - 1
+        row = int(input(f"Select a row (1-{rows}): \n")) - 1
+        col = int(input(f"Select a column (1-{columns}): \n")) - 1
         if 0 <= row < rows and 0 <= col < columns:
             result = choose_coordinate(computer_board, row, col)
             print(result)
