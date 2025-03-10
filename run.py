@@ -1,6 +1,9 @@
 import random
 from random import randint
 
+# import pyfiglet module
+import pyfiglet
+
 import colorama
 # import colorma module
 from colorama import init, Fore, Back, Style
@@ -8,16 +11,13 @@ from colorama import init, Fore, Back, Style
 # Initialize Colorama
 init()
 
-# import pyfiglet module 
-import pyfiglet
-
 """
 Battleships welcome message
 """
 print("-" * 79)
 print("Welcome to...")
 print(" ")
-result = pyfiglet.figlet_format("Battleships", font = "colossal" ) 
+result = pyfiglet.figlet_format("Battleships", font="colossal")
 print(result)
 print("Choose an easy board or a hard board below.")
 print("Good luck!")
@@ -26,6 +26,8 @@ print("-" * 79)
 """
 Asks the user to select easy or hard board
 """
+
+
 def board_difficulty():
     while True:
         try:
@@ -39,6 +41,7 @@ def board_difficulty():
         except ValueError:
             print("Invalid input. You must enter either 'Easy' or 'Hard'.")
 
+
 rows, columns = board_difficulty()
 
 """
@@ -47,14 +50,16 @@ Places the ships on the board.
 Allows the user to take a shot by selecting coordinates.
 """
 
+
 def create_game_board(rows, columns):
     board = [['.' for _ in range(columns)] for _ in range(rows)]
     return board
 
-def display_board(board, hide_ships=False):
-    header_spacing = " " * (len(str(len(board))) + 1)
 
-    print(header_spacing + " ".join(f"{i + 1:2}" for i in range(len(board[0]))))
+def display_board(board, hide_ships=False):
+    header_space = " " * (len(str(len(board))) + 1)
+
+    print(header_space + " ".join(f"{i + 1:2}" for i in range(len(board[0]))))
 
     for i, row in enumerate(board):
         row_str = f"{i + 1:2} "
@@ -65,7 +70,8 @@ def display_board(board, hide_ships=False):
             else:
                 display_row.append(cell)
         print(row_str + "  ".join(display_row))
-        
+
+
 def ship_location(board, num_ships):
     ships = []
     while len(ships) < num_ships:
@@ -75,7 +81,8 @@ def ship_location(board, num_ships):
             ships.append((row, col))
             board[row][col] = 'S'
     return ships
-    
+
+
 def choose_coordinate(board, row, col):
     if board[row][col] == 'S':
         board[row][col] = 'X'
@@ -85,7 +92,8 @@ def choose_coordinate(board, row, col):
         return "Miss!"
     else:
         return "You've already selected that coordinate."
-    
+
+
 player_board = create_game_board(rows, columns)
 computer_board = create_game_board(rows, columns)
 
@@ -117,30 +125,30 @@ while True:
 
             if "Direct hit!" in result:
                 player_hits += 1
-                print(Fore.BLUE + f"Player hits: {player_hits}" + Style.RESET_ALL)
+                print(f"Player hits: {player_hits}")
                 if player_hits == num_ships:
                     print(Fore.GREEN + "You sunk all the computer's ships.")
                     print(" ")
-                    result = pyfiglet.figlet_format("Y o u  w i n !", font = "colossal" ) 
+                    result = pyfiglet.figlet_format("You win", font="colossal")
                     print(result)
                     break
-            
-            computer_row = random.randint(0, rows - 1)
-            computer_col = random.randint(0, columns - 1)
-            computer_result = choose_coordinate(player_board, computer_row, computer_col)
-            print(f"Computer's turn: {computer_result}")
+
+            comp_row = random.randint(0, rows - 1)
+            comp_col = random.randint(0, columns - 1)
+            comp_result = choose_coordinate(player_board, comp_row, comp_col)
+            print(f"Computer's turn: {comp_result}")
             display_board(player_board)
 
-            if "Direct hit!" in computer_result:
+            if "Direct hit!" in comp_result:
                 computer_hits += 1
-                print(Fore.BLUE + f"Computer hits: {computer_hits}" + Style.RESET_ALL)
+                print(f"Computer hits: {computer_hits}")
                 if computer_hits == num_ships:
                     print(Fore.RED + "Computer sunk all your ships.")
                     print(" ")
-                    result = pyfiglet.figlet_format("Y o u  l o s e", font="colossal")
+                    result = pyfiglet.figlet_format("Loser!", font="colossal")
                     print(result)
                     break
-            
+
         else:
             print(f"Please enter a row and column between 1 and {columns}.")
     except ValueError:
