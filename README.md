@@ -1,10 +1,4 @@
-## Reminders
-
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
+## Creating the Heroku app - EDIT
 
 When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
 
@@ -19,7 +13,7 @@ Connect your GitHub repository and deploy as normal.
 
 # Battleships
 
-Battleships is an interactive command line game that allows users to select a difficulty level between 'Easy' and 'Hard' and select coordinates in the form of rows and columns to sink the computer's ships. The game shows the user's boards with the placement of their ships and the computer's board where the ships are hidden. It notifies the user of a hit with an 'X' and a miss with an 'O'. The winner is determined when they sink all their opponent's ships first.
+Battleships is an interactive game that allows users to select a difficulty level between 'Easy' and 'Hard' and select coordinates in the form of rows and columns to sink the computer's ships. The game shows the user's boards with the placement of their ships and the computer's board where the ships are hidden. It notifies the user of a hit with an 'X' and a miss with an 'O'. The winner is determined when they sink all their opponent's ships first.
 
 ![Responsive Mockup](media/)
 
@@ -28,10 +22,11 @@ Battleships is an interactive command line game that allows users to select a di
 The Battleships game includes the following features:
 
 - User can select the difficulty of the game. 'Easy' creates a 5x5 board. 'Hard' creates a 9x9 board.
-- User board and computer board.
+- Shows the user board and computer board.
 - Radnom ship placement.
 - Marking the board with 'X' for a hit and 'O' for a miss.
 - Number of hits the user and computer has made.
+- A win or lose message depending on the outcome of the game.
 
 ### Existing Features
 
@@ -67,6 +62,12 @@ __Number of hits__
 
 ![Number of hits](media/)
 
+__Win or lose message__ 
+
+  - If the user sinks all the computer's ships first, they will see a 'You win' message. If the computer sinks all the user's ships first, the user will see a 'Loser!' message.
+
+![Win or lose message](media/)
+
 ### Features to implement in the future
 
 - A version that allows the user to select where they want to place their ships
@@ -91,138 +92,125 @@ __Number of hits__
 
 ## Testing
 
-### Responsiveness
-
-All pages were tested to ensure responsiveness on screen sizes from 320px and upwards as defined in [WCAG 2.2 Reflow criteria for responsive design](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html) on Chrome and safari browsers.
-
-Steps to test:
-
-1. Open browser and navigate to [RPSLS](/https://luke-nicklin.github.io/rpsls/)
-2. Open the developer tools (right click and inspect)
-3. Set to responsive and decrease width to 320px
-4. Set the zoom to 50%
-5. Click and drag the responsive window to maximum width
-
-Expected:
-
-Website is responsive on all screen sizes and no images are pixelated or stretched.
-
-Actual:
-
-Website behaved as expected.
-
-### Accessibility
-
-[Wave Accessibility](https://wave.webaim.org/) tool was used for final testing of the deployed website to check for any accessibility issues.
-
-Testing checked to see if the following criteria were met:
-
-- Color contrasts meet a minimum ratio as specified in [WCAG 2.2 Contrast Guidelines](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)
-- Heading levels are not missed or skipped to ensure the importance of content is relayed correctly to the end user
-- All content is contained within landmarks to ensure ease of use for assistive technology, allowing the user to navigate by page regions
-- All non textual content had alternative text or titles so descriptions are read out to screen readers
-- HTML page lang attribute has been set
-- Aria properties have been implemented correctly
-- WCAG 2.2 Coding best practices being followed
-
-### Lighthouse Testing
-
-__Home__
-
-![Home](media/homepage-lighthouse.png)
-
-__404 page__
-
-![Meditation](media/404-lighthouse.png)
-
 ### Functional Testing
 
-**Buttons**
+**Difficulty**
 
-Testing was performed to ensure all buttons resulted in the expected behaviour as per design. This was done by selecting each button on the home page and 404 page.
+Testing was performed to ensure the difficulty input produced the correct size board. This was done by entering 'Easy' and 'Hard' at the beginning of the game.
 
-| Navigation Link | Page to Load     |
-| --------------- | ---------------  |
-| Home            | index.html       |
-| 404             | 404.html         |
-
-Buttons on all pages produced the expected behaviour.
+Both inputs produced the expected behaviour.
 
 Steps to test
 
-1. Navigate to [RPSLS] (https://luke-nicklin.github.io/rpsls/)
-2. Select "Rock" button
-3. Select "Paper" button
-2. Select "Scissors" button
-3. Select "Lizard" button
-2. Select "Spock" button
+1. Navigate to the Battleships game.
+2. Enter 'Easy' (for a 5x5 board).
+3. Enter 'Hard' (for a 9x9 board).
 
-Expected behaviour
+Expected behaviour:
 
-When the user selects a button the matching image will appear under the 'You' H2 and the computer's random move will generate the image that matches its move under the 'Computer' H2.
+When the user enters 'Easy', the board created was 5x5. When the user enters 'Hard', the board created was 9x9.
 
 Actual:
 
 Behaviour as expected
 
-**Result**
+**Choosing coordinates**
+
+Testing was performed to ensure the right coordinates were chosen when a user entered a row and a column.
+
+The row and column inputs behaved as expected and matched the correct coordinates on the board.
 
 Steps to test
 
-1. Navigate to [RPSLS] (https://luke-nicklin.github.io/rpsls/)
-2. Select "Rock" button
-3. Select "Paper" button
-2. Select "Scissors" button
-3. Select "Lizard" button
-2. Select "Spock" button
+1. Navigate to the Battleships game.
+2. Enter 'Easy' (for a 5x5 board) or 'Hard' (for a 9x9 board).
+3. Enter a row number and a column number.
+4. Check the board to see that the correct coordinate was selected on the computer's board.
 
-Expected behaviour
+Expected behaviour:
 
-When the user selects a button, the result displays the outcome of each game. It will either say 'You win!', 'You lose!' or 'It's a tie!'
+When the user selects a row and a column, the correct coordinate is chosen on the computer's board.
 
 Actual:
 
 Behaviour as expected
 
-**Scoreboard**
+**Hits and missess**
+
+Testing was performed to ensure that a 'X' was marked on the board for a hit and an 'O' was marked on the board for a miss.
+
+The board behaved as expected and showed an 'X' for a hit and a 'O' for a miss.
 
 Steps to test
 
-1. Navigate to [RPSLS] (https://luke-nicklin.github.io/rpsls/)
-2. Select "Rock" button
-3. Select "Paper" button
-2. Select "Scissors" button
-3. Select "Lizard" button
-2. Select "Spock" button
+1. Navigate to the Battleships game.
+2. Enter 'Easy' (for a 5x5 board) or 'Hard' (for a 9x9 board).
+3. Enter a row number and a column number.
+4. Check the board to see if the coordinate chosen is marked with an 'X' for a hit or an 'O' for a miss.
 
-When the user selects a button, the scoreboard is updated with the result of each game. This is a running total of the results of all the games in the session.
+Expected behaviour:
+
+When the user hits a computer ship, an 'X' is marked on the board. When the user misses a computer ship, an 'O' is marked on the board.
 
 Actual:
 
-Behaviour as expected.
+Behaviour as expected
 
-### Validator Testing 
+**User and computer hits**
 
-- HTML
-  - No errors were returned when passing the home page through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fluke-nicklin.github.io%2Frpsls%2F)
-  - No errors were returned when passing the 404 page through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fluke-nicklin.github.io%2Frpsls%2F404)
+Testing was performed to ensure that when a user or a computer has a hit, the game shows how many hits the user has had and how many hits the computer has had.
 
-- CSS
-  - No errors were found when passing the home page through the official [W3C validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fluke-nicklin.github.io%2Frpsls%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
-  - No errors were returned when passing the 404 page through the official [W3C Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fluke-nicklin.github.io%2Frpsls%2F404&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+The board behaved as expected and showed how many user and computer hits when either has a hit.
 
-- JavaScript
-  - No errors were found when passing the JavaScript code through the JSHint checker website ![JSHint](media/JShint%20-%20result-image.png) 
+Steps to test
 
+1. Navigate to the Battleships game.
+2. Enter 'Easy' (for a 5x5 board) or 'Hard' (for a 9x9 board).
+3. Enter a row number and a column number.
+4. Check the board to see if the coordinate chosen is marked with an 'X' for a hit or an 'O' for a miss.
+5. Check to see if the game shows how many user and computer hits when either has a hit.
+
+Expected behaviour:
+
+When the user or computer had a hit, the game shows the number of user hits and number of computer hits.
+
+Actual:
+
+Behaviour as expected
+
+**Win or lose**
+
+Testing was performed to ensure that when a the game is finished, the user either sees a 'You win' message or a 'Loser!' message depending on the outcome of the game.
+
+The board behaved as expected and showed the user a 'You win' message when they won.
+The board behaved as expected and showed the user s 'Loser!' message when they lost.
+
+Steps to test
+
+1. Navigate to the Battleships game.
+2. Enter 'Easy' (for a 5x5 board) or 'Hard' (for a 9x9 board).
+3. Enter a row number and a column number.
+4. Keep playing until you win to see the 'You win' message or lose to see the 'Loser!' message.
+
+Expected behaviour:
+
+When the user won the game, they saw a 'You win' message.
+When the user lost the game, they saw a 'Loser!' message.
+
+Actual:
+
+Behaviour as expected
+
+### Validator Testing - EDIT
+
+- Python
+  - No errors were returned when passing the Battleships game through the [CI Python Lintor]()
+ 
 ### Bugs
 
-- Scoreboard
+There are no known bugs within the code.
 
-I encountered a bug with the scoreboard where it would reset for each game. Therefore, it did not keep a running track of the scores. I managed to fix this by moving the event listeneres and attaching them to the DOM variables. However this lead to an issue with the playGame function running twice every time a button was clicked.
-
-I realised that I had an onclick="playGame('rock')" on each button within my HTML that was causing this issue. By removing this, the playGame function only ran once and the scoreboard went up in increments of one each time a game was played.
-
-## Deployment
+## Deployment - EDIT
 
 - The site was deployed to GitHub pages. The steps to deploy are as follows: 
   - In the GitHub repository, navigate to the Settings tab 
@@ -233,7 +221,7 @@ The live link can be found here - https://luke-nicklin.github.io/rpsls/
 
 ### Version Control
 
-The site was created using the Visual Studio Code editor and pushed to github to the remote repository 'rpsls'.
+The site was created using the Visual Studio Code editor and pushed to github to the remote repository 'battleships'.
 
 The following git commands were used throughout development to push code to the remote repo:
 
@@ -260,7 +248,7 @@ The project will now have been cloned on your local machine for use.
 
 ### Code
 
-- CodeInstitute - JavaScript module helped me to implement certain aspects of the code such as the moves array, playGame function and else/if statements. It also showed me how to change the images when a button is selected using template literals in the example project video.
-- StackOverflow - Helped me to troubleshoot issues I was having with JavaScrip throughout the project.
-- SheCodes - Helped me work out how to use event listeners for the buttons.
-- [Code with Ania Kubów](https://www.youtube.com/watch?v=RwFeg0cEZvQ) was used to help me better understand different ways to use JavaScript to make the game work.
+- CodeInstitute - Python module helped me gain a good understanding of the fundamentals such as variables, operators, functions and classes. These concepts allowed me to build the foundation of the Battleships game. 
+- StackOverflow - Helped me to troubleshoot issues I was having with Python throughout the project.
+- [Knowledge Mavens - How to Code Battleship in Python - Single Player Game](https://www.youtube.com/watch?v=tF1WRCrd_HQ) was used to help me better understand different ways to use Python to make the game work.
+- Zed Shaw's 'Learn Python 3 the Hard Way' book helped me to practice working with Python code, providing multiple exercises to work through.
