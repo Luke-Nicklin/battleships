@@ -46,8 +46,8 @@ rows, columns = board_difficulty()
 
 """
 Creates the Battleships board.
+Displays the board with the correct header and board alignment.
 Places the ships on the board.
-Allows the user to take a shot by selecting coordinates.
 """
 
 
