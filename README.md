@@ -36,37 +36,37 @@ __Select difficulty__
   - If they enter 'Easy', they will play using a 5x5 board.
   - If they enter 'Hard', they will play using a 9x9 board.
 
-![Difficulty](media/)
+![Difficulty](media/Select%20difficulty.png)
 
 __User and computer boards__
 
   - Once the user enters the difficulty, a board is created for the user and for the computer.
 
-![Boards](media/)
+![Boards](media/User%20and%20computer%20board.png)
 
 __Random ship placement__
 
   - When the boards are created, the ships are randomly placed on both boards. The ships are visible on the user's board but hidden on the computer's board.
    
-![Random ship placement](media/)
+![Random ship placement](media/User%20and%20computer%20board.png)
 
 __Hits and misses__
 
   - To keep track of hits and misses, the game marks a hit with an 'X' and a miss with a 'O'. This is so the user can see what they've hit, what they've missed and coordinates they haven't selected yet. 
 
-![Hits and misses](media/)
+![Hits and misses](media/Hits%20and%20misses.png)
 
 __Number of hits__ 
 
   - Each time the user or computer has a hit, the game shows the number of hits the user has made and the number of hits the computer has made. This allows the user to easily see who's winning and how many ships are left.
 
-![Number of hits](media/)
+![Number of hits](media/Hits%20and%20misses.png)
 
 __Win or lose message__ 
 
   - If the user sinks all the computer's ships first, they will see a 'You win' message. If the computer sinks all the user's ships first, the user will see a 'Loser!' message.
 
-![Win or lose message](media/)
+![Win or lose message](media/You%20win.png)
 
 ### Features to implement in the future
 
