@@ -57,19 +57,14 @@ def create_game_board(rows, columns):
 
 
 def display_board(board, hide_ships=False):
-    header_space = " " * (len(str(len(board))) + 1)
-
-    print(header_space + " ".join(f"{i + 1:2}" for i in range(len(board[0]))))
-
-    for i, row in enumerate(board):
-        row_str = f"{i + 1:2} "
+    for row in board:
         display_row = []
         for cell in row:
             if hide_ships and cell == 'S':
                 display_row.append('.')
             else:
                 display_row.append(cell)
-        print(row_str + "  ".join(display_row))
+        print("  ".join(display_row))
 
 
 def ship_location(board, num_ships):
