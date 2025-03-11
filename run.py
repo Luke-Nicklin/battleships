@@ -82,7 +82,7 @@ def choose_coordinate(board, row, col):
     if board[row][col] == 'S':
         board[row][col] = 'X'
         return "Direct hit!"
-    elif board[row][col] == '.':
+    elif board[row][col] == '~':
         board[row][col] = 'O'
         return "Miss!"
     else:
