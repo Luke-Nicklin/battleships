@@ -52,16 +52,16 @@ Places the ships on the board.
 
 
 def create_game_board(rows, columns):
-    board = [['.' for _ in range(columns)] for _ in range(rows)]
+    board = [['~' for _ in range(columns)] for _ in range(rows)]
     return board
 
 
-def display_board(board, hide_ships=False):
+def show_board(board, hide_ships=False):
     for row in board:
         display_row = []
         for cell in row:
             if hide_ships and cell == 'S':
-                display_row.append('.')
+                display_row.append('~')
             else:
                 display_row.append(cell)
         print("  ".join(display_row))
@@ -98,10 +98,10 @@ player_ships = ship_location(player_board, num_ships)
 computer_ships = ship_location(computer_board, num_ships)
 
 print("Your board:")
-display_board(player_board)
+show_board(player_board)
 
 print("Computer's board:")
-display_board(computer_board, hide_ships=True)
+show_board(computer_board, hide_ships=True)
 
 """
 Allows the user to take a shot by selecting the coordinates.
@@ -116,7 +116,7 @@ while True:
         if 0 <= row < rows and 0 <= col < columns:
             result = choose_coordinate(computer_board, row, col)
             print(result)
-            display_board(computer_board, hide_ships=True)
+            show_board(computer_board, hide_ships=True)
 
             if "Direct hit!" in result:
                 player_hits += 1
@@ -132,7 +132,7 @@ while True:
             comp_col = random.randint(0, columns - 1)
             comp_result = choose_coordinate(player_board, comp_row, comp_col)
             print(f"Computer's turn: {comp_result}")
-            display_board(player_board)
+            show_board(player_board)
 
             if "Direct hit!" in comp_result:
                 computer_hits += 1
