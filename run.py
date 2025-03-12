@@ -5,7 +5,7 @@ from random import randint
 import pyfiglet
 
 # import colorma module
-from colorama import init, Fore
+from colorama import init, Fore, Style
 
 # Initialize Colorama
 init()
@@ -85,12 +85,12 @@ def choose_coordinate(board, row, col):
     """
     if board[row][col] == 'S':
         board[row][col] = 'X'
-        return "Direct hit!"
+        return Fore.GREEN + "Direct hit!" + Style.RESET_ALL
     elif board[row][col] == '~':
         board[row][col] = 'O'
-        return "Miss!"
+        return Fore.RED + "Miss!" + Style.RESET_ALL
     else:
-        return "You've already selected that coordinate."
+        return Fore.CYAN + "Coordinate already selected." + Style.RESET_ALL
 
 
 def main():
@@ -145,7 +145,7 @@ def play_game(player_board, computer_board, rows, columns, num_ships):
                         print(Fore.GREEN + "You sunk all my battleships.")
                         print(" ")
                         result = pyfiglet.figlet_format("You \
-                                                         win", font="colossal")
+win!", font="colossal")
                         print(result)
                         break
 
@@ -163,7 +163,7 @@ def play_game(player_board, computer_board, rows, columns, num_ships):
                         print(Fore.RED + "Computer sunk all your ships.")
                         print(" ")
                         result = pyfiglet.figlet_format("Loser! \
-                                                        ", font="colossal")
+", font="colossal")
                         print(result)
                         break
 
