@@ -4,9 +4,8 @@ from random import randint
 # import pyfiglet module
 import pyfiglet
 
-import colorama
 # import colorma module
-from colorama import init, Fore, Back, Style
+from colorama import init, Fore
 
 # Initialize Colorama
 init()
