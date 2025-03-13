@@ -13,7 +13,7 @@ Connect your GitHub repository and deploy as normal.
 
 # Battleships
 
-Battleships is an interactive game that allows users to select a difficulty level between 'Easy' and 'Hard' and select coordinates in the form of rows and columns to sink the computer's ships. The game shows the user's boards with the placement of their ships and the computer's board where the ships are hidden. It notifies the user of a hit with an 'X' and a miss with an 'O'. The winner is determined when they sink all their opponent's ships first.
+Battleships is an interactive game that allows users to select a difficulty level between 'easy' and 'hard' and then select coordinates in the form of rows and columns to sink the computer's ships. The game shows the user's boards with the placement of their ships and the computer's board where the ships are hidden. It notifies the user of a hit with an 'X' and a miss with an 'O'. The winner is determined when they sink all their opponent's ships first.
 
 ![Responsive Mockup](media/)
 
@@ -204,7 +204,7 @@ Behaviour as expected
 ### Validator Testing - EDIT
 
 - Python
-  - No errors were returned when passing the Battleships game through the [CI Python Lintor]()
+  - No errors were returned when passing the Battleships game through the [CI Python Lintor](media/CI%20Python%20Linter.png)
  
 ### Bugs
 

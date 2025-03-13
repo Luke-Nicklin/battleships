@@ -1,3 +1,6 @@
+"""
+Import random
+"""
 import random
 from random import randint
 
