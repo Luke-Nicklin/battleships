@@ -34,6 +34,7 @@ def board_difficulty():
     """
     while True:
         try:
+            # Converts uppercase input to lowercase
             diff = input("Select difficulty: 'easy' or 'hard': \n").lower()
             if diff == "easy":
                 return 5, 5
@@ -47,7 +48,7 @@ def board_difficulty():
 
 def create_game_board(rowsin, columnsin):
     """
-    Creates the battleships board.
+    Creates the battleships board based off of difficulty input.
     """
     board = [['~' for _ in range(columnsin)] for _ in range(rowsin)]
     return board
@@ -61,6 +62,7 @@ def show_board(board, hide_ships=False):
     for row in board:
         display_row = []
         for cell in row:
+            # Hides ships on computer's board
             if hide_ships and cell == 'S':
                 display_row.append('~')
             else:
@@ -76,6 +78,7 @@ def ship_location(board, num_ships):
     while len(ships) < num_ships:
         row = randint(0, len(board) - 1)
         col = randint(0, len(board[0]) - 1)
+        # Stops multiple ships beng placed at same location
         if (row, col) not in ships:
             ships.append((row, col))
             board[row][col] = 'S'
@@ -88,11 +91,14 @@ def choose_coordinate(board, row, col):
     """
     if board[row][col] == 'S':
         board[row][col] = 'X'
+        # Prints 'Direct hit!' in green
         return Fore.GREEN + "Direct hit!" + Style.RESET_ALL
     elif board[row][col] == '~':
         board[row][col] = 'O'
+        # Prints 'Miss! in red'
         return Fore.RED + "Miss!" + Style.RESET_ALL
     else:
+        # Prints 'Coordinate already selected.' in cyan
         return Fore.CYAN + "Coordinate already selected." + Style.RESET_ALL
 
 
@@ -106,7 +112,9 @@ def main():
     """
     welcome_message()
     rows, columns = board_difficulty()
+    # Creates player board
     player_board = create_game_board(rows, columns)
+    # Creates computer board
     computer_board = create_game_board(rows, columns)
 
     num_ships = 5
@@ -144,6 +152,7 @@ def play_game(player_board, computer_board, rows, columns, num_ships):
                 if "Direct hit!" in result:
                     player_hits += 1
                     print(f"Player hits: {player_hits}")
+                    # Displays result of the game
                     if player_hits == num_ships:
                         print(Fore.GREEN + "You sunk all my battleships.")
                         print(" ")
@@ -162,6 +171,7 @@ win!", font="colossal")
                 if "Direct hit!" in comp_result:
                     computer_hits += 1
                     print(f"Computer hits: {computer_hits}")
+                    # Displays result of the game
                     if computer_hits == num_ships:
                         print(Fore.RED + "Computer sunk all your ships.")
                         print(" ")
