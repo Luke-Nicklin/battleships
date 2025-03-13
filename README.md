@@ -48,25 +48,28 @@ __Random ship placement__
 
   - When the boards are created, the ships are randomly placed on both boards. The ships are visible on the user's board but hidden on the computer's board.
    
-![Random ship placement](media/User%20and%20computer%20board.png)
+![Random ship placement](media/Random%20ship%20placement.png)
 
 __Hits and misses__
 
   - To keep track of hits and misses, the game marks a hit with an 'X' and a miss with a 'O'. This is so the user can see what they've hit, what they've missed and coordinates they haven't selected yet. 
 
-![Hits and misses](media/Hits%20and%20misses.png)
+![Miss](media/Miss.png)
+![Direct hit](media/Direct%20hit.png)
+![Coordinate already selected](media/Coordinate%20already%20selected.png)
 
 __Number of hits__ 
 
   - Each time the user or computer has a hit, the game shows the number of hits the user has made and the number of hits the computer has made. This allows the user to easily see who's winning and how many ships are left.
 
-![Number of hits](media/Hits%20and%20misses.png)
+![Number of hits](media/Number%20of%20hits.png)
 
 __Win or lose message__ 
 
   - If the user sinks all the computer's ships first, they will see a 'You win' message. If the computer sinks all the user's ships first, the user will see a 'Loser!' message.
 
-![Win or lose message](media/You%20win.png)
+![You win](media/You%20win.png)
+![Loser](media/Loser.png)
 
 ### Features to implement in the future
 
@@ -201,7 +204,7 @@ Actual:
 
 Behaviour as expected
 
-### Validator Testing - EDIT
+### Validator Testing
 
 - Python
   - No errors were returned when passing the Battleships game through the [CI Python Lintor](media/CI%20Python%20Linter.png)
@@ -212,12 +215,7 @@ There are no known bugs within the code.
 
 ## Deployment - EDIT
 
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the GitHub repository, navigate to the Settings tab 
-  - Select Pages in the 'Code and automation' section of the vertical navigation on the left side
-  - Once the main branch has been selected and saved, the page will include the live URL at the top of the page with a visit site button.
-
-The live link can be found here - https://luke-nicklin.github.io/rpsls/
+- The site was deployed to...
 
 ### Version Control
 
