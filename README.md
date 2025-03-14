@@ -222,7 +222,7 @@ Error messages have been used throughout the battleships game to inform the user
 #### Python
 
 - No errors were returned when passing the Battleships game through the CI Python Lintor
-![CI Python Lintor](media/CI%20python%20linter.png)
+![CI Python Lintor](media/Ci%20python%20linter.png)
 
  
 ### Bugs
