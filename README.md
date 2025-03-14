@@ -215,7 +215,7 @@ Error messages have been used throughout the battleships game to inform the user
  
 ### Bugs
 
-There are no known bugs within the code.
+When I first introduced some colour to the hit a miss messages and the 'X' and 'O's on the board, the colour would continue through the rest of the board. It wouldn't just colour the message. It would colour areas of the board I didn't want to colour. I fixed this by adding Style.RESETALL after the 'Direct hit!' and 'Miss!' message so the style would revert back to normal. This fixed the issue.
 
 ## Deployment
 
