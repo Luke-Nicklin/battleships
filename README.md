@@ -221,12 +221,10 @@ There are no known bugs within the code.
 
 ### GitHub
 
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the GitHub repository, navigate to the Settings tab 
-  - Select Pages in the 'Code and automation' section of the vertical navigation on the left side
-  - Once the main branch has been selected and saved, the page will include the live URL at the top of the page with a visit site button.
-
-The live link can be found here - https://luke-nicklin.github.io/battleships/
+- All python code was pushed to GitHub using the following steps:
+  - git add .
+  - git commit -m "Commit message"
+  - git push
 
 ### Heroku
 
