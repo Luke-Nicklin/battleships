@@ -220,7 +220,7 @@ Error messages have been used throughout the battleships game to inform the user
 ### Validator Testing
 
 - Python
-  - No errors were returned when passing the Battleships game through the 
+- No errors were returned when passing the Battleships game through the 
 ![CI Python Lintor](media/CI%20Python%20linter.png)
  
 ### Bugs
