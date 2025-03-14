@@ -206,6 +206,19 @@ Actual:
 
 Behaviour as expected
 
+**Error messages**
+
+Error messages have been used throughout the battleships game to inform the user when they have made a mistake and how to correct it. Error messages are used for the following:
+
+- When selecting a difficulty level
+![Difficulty error](media/Difficulty%20error.png)
+
+- When entering coordinates
+![Coordinates error](media/Coordinates%20error.png)
+
+- When a user selects a coordinate they've already selected
+![Coordinate already selected error](media/Coordinate%20already%20selected.png)
+
 ### Validator Testing
 
 - Python
