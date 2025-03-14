@@ -1,21 +1,8 @@
-## Creating the Heroku app - EDIT
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
 # Battleships
 
 Battleships is an interactive game that allows users to select a difficulty level between 'easy' and 'hard' and then select coordinates in the form of rows and columns to sink the computer's ships. The game shows the user's boards with the placement of their ships and the computer's board where the ships are hidden. It notifies the user of a hit with an 'X' and a miss with an 'O'. The winner is determined when they sink all their opponent's ships first.
 
-![Responsive Mockup](media/)
+![Responsive Mockup](media/Battleships%20responsive%20mockup.png)
 
 ## Features 
 
@@ -230,9 +217,28 @@ Error messages have been used throughout the battleships game to inform the user
 
 There are no known bugs within the code.
 
-## Deployment - EDIT
+## Deployment
 
-- The site was deployed to...
+### GitHub
+
+- The site was deployed to GitHub pages. The steps to deploy are as follows: 
+  - In the GitHub repository, navigate to the Settings tab 
+  - Select Pages in the 'Code and automation' section of the vertical navigation on the left side
+  - Once the main branch has been selected and saved, the page will include the live URL at the top of the page with a visit site button.
+
+The live link can be found here - https://luke-nicklin.github.io/battleships/
+
+### Heroku
+
+- The battleships game was also deployed to Heroku via the following steps:
+  - Create new app
+  - Enter a name and select Europe for region
+  - In settings, add buildpacks for Python and Node.js
+  - Got to config cars and enter a key of PORT and a value of 8000
+  - Go to deploy and connect to GitHub
+  - Search for the battleships repo and select connect
+  - Select 'Manual deploy'
+- Live URL https://battleships-ln-c8e1346bd40a.herokuapp.com/
 
 ### Version Control
 
