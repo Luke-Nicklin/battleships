@@ -76,8 +76,6 @@ __Win or lose message__
 - A version that allows the user to select where they want to place their ships
 - The ability to include larger ships that span multiple coordinates
 
-## Data Model
-
 ## Technologies
 
 * Python
