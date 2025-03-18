@@ -80,6 +80,10 @@ __Win or lose message__
 * Git 
     * Used to commit and push code during the development opf the Website 
 
+## Flow Chart
+
+![Flow chart](media/Battleships%20flow%20diagram.png)
+
 ## Testing
 
 ### Functional Testing
