@@ -10,7 +10,7 @@ The Battleships game includes the following features:
 
 - User can select the difficulty of the game. 'Easy' creates a 5x5 board. 'Hard' creates a 9x9 board.
 - Shows the user board and computer board.
-- Radnom ship placement.
+- Random ship placement.
 - Marking the board with 'X' for a hit and 'O' for a miss.
 - Number of hits the user and computer has made.
 - A win or lose message depending on the outcome of the game.
@@ -76,7 +76,7 @@ __Win or lose message__
 * Visual Studio Code
     * The game was developed using the Visual Studio Code text editor.
 * GitHub
-    * Source code is hosted on GitHub and delpoyed using Git Pages.
+    * Source code is hosted on GitHub and deployed using Git Pages.
 * Git 
     * Used to commit and push code during the development opf the Website 
 
@@ -215,7 +215,7 @@ Error messages have been used throughout the battleships game to inform the user
  
 ### Bugs
 
-When I first introduced some colour to the hit a miss messages and the 'X' and 'O's on the board, the colour would continue through the rest of the board. It wouldn't just colour the message. It would colour areas of the board I didn't want to colour. I fixed this by adding Style.RESETALL after the 'Direct hit!' and 'Miss!' message so the style would revert back to normal. This fixed the issue.
+When I first introduced some colour to the hit and miss messages and the 'X' and 'O's on the board, the colour would continue through the rest of the board. It wouldn't just colour the message. It would colour areas of the board I didn't want to colour. I fixed this by adding Style.RESETALL after the 'Direct hit!' and 'Miss!' message so the style would revert back to normal. This fixed the issue.
 
 ## Deployment
 

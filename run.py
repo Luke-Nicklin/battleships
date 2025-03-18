@@ -156,8 +156,8 @@ def play_game(player_board, computer_board, rows, columns, num_ships):
                     if player_hits == num_ships:
                         print(Fore.GREEN + "You sunk all my battleships.")
                         print(" ")
-                        result = pyfiglet.figlet_format("You \
-win!", font="colossal")
+                        result = pyfiglet.figlet_format("Y o u  \
+w i n !", font="colossal")
                         print(result)
                         break
 
@@ -175,7 +175,7 @@ win!", font="colossal")
                     if computer_hits == num_ships:
                         print(Fore.RED + "Computer sunk all your ships.")
                         print(" ")
-                        result = pyfiglet.figlet_format("Loser! \
+                        result = pyfiglet.figlet_format("L o s e r ! \
 ", font="colossal")
                         print(result)
                         break
