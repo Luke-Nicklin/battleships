@@ -3,6 +3,7 @@
 Battleships is an interactive game that allows users to select a difficulty level between 'easy' and 'hard' and then select coordinates in the form of rows and columns to sink the computer's ships. The game shows the user's boards with the placement of their ships and the computer's board where the ships are hidden. It notifies the user of a hit with an 'X' and a miss with an 'O'. The winner is determined when they sink all their opponent's ships first.
 
 [View live project here.](https://battleships-ln-c8e1346bd40a.herokuapp.com/)
+
 ![Responsive Mockup](media/Battleships%20responsive%20mockup.png)
 
 ## Features 
